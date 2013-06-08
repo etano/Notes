@@ -1,0 +1,168 @@
+%\documentclass[aps,prl,twocolumn,showpacs,superscriptaddress,groupedaddress]{revtex4}  % for review and submission
+\documentclass[aps,preprint,showpacs,superscriptaddress,groupedaddress]{revtex4}  % for double-spaced preprint
+\usepackage{dcolumn}   % needed for some tables
+\usepackage{bm}        % for math
+\usepackage{amssymb}   % for math
+\usepackage{amsfonts}  % for math
+\usepackage{amsmath}   % for math
+\usepackage{mathcomp}  % for math
+\usepackage{graphicx}  % for figures
+\usepackage{subfigure} % for figures
+\usepackage{multirow}  % for tables
+\usepackage{hyperref}  % for urls
+
+\usepackage{verbatim}
+\usepackage{color}
+%\usepackage{ulem}
+
+\newcommand{\awk}[1]{{\color{red} awkward $\rightarrow$}{\em #1}}
+\newcommand{\note}[1]{{\color{blue} $\ll$ #1 $\gg$}}
+\newcommand{\edit}[2]{{\color{blue} #1 }{\sout{#2}}}
+\newcommand{\add}[1]{{\color{blue} #1}}
+
+% avoids incorrect hyphenation, added Nov/08 by SSR
+\hyphenation{ALPGEN}
+\hyphenation{EVTGEN}
+\hyphenation{PYTHIA}
+
+\begin{document}
+
+\title{Properties of Permutations Sectors for the Free Fermi Gas}
+
+% authors
+\author{Ethan W. Brown}
+\email{brown122@illinois.edu}
+\affiliation{Department of Physics, University of Illinois at Urbana-Champaign, 1110 W.\ Green St.\ , Urbana, IL  61801-3080, USA}
+\affiliation{Lawrence Livermore National Lab, 7000 East Ave, L-415, Livermore CA 94550, USA}
+\date{\today}
+
+\begin{abstract}
+\end{abstract}
+
+\pacs{}
+\maketitle
+
+\section{Separating Permutation Space}
+
+We begin by writing the partition function of $N$ particles as
+
+\begin{eqnarray}
+  \mathcal{Z}^{(N)} &=& \frac{1}{N!} \int d^{D}x^{(1)} \dots d^{D}x^{(N)} (x^{(1)},\dots,x^{(N)};\hbar \beta \mid x^{(1)},\dots,x^{(N)};0) \\
+                    &=& \frac{1}{N!} \int d^{D}x^{(1)} \dots d^{D}x^{(N)} \sum_{p(\nu)} \epsilon_{p(\nu)} (x^{(p(1))},\dots,x^{(p(N))};\hbar \beta \mid x^{(1)},\dots,x^{(N)};0)
+\end{eqnarray}
+
+where the sum is over all possible permutations, each with sign $\epsilon_{p(\nu)}$. Generally we write,
+
+\begin{equation}
+  (x_{b}^{(1)},\dots,x_{b}^{(N)};\hbar \beta \mid x_{a}^{(1)},\dots,x_{a}^{(N)};0) = \prod_{\nu=1}^{N} [\int \mathcal{D}^{D}x^{\nu}\exp^{-\mathcal{A}^{(N)}/\hbar}]
+\end{equation}
+
+where the $N$-particle action is given by,
+
+\begin{equation}
+  \mathcal{A}^{(N)} = \int_{0}^{\hbar \beta} d\tau [\sum_{\nu=1}^{N}(\frac{M^{(\nu)}}{2}(\dot{x}^{(\nu)})^{2} - V(x^{(\nu)})) - \frac{1}{2}\sum_{\nu\neq\nu'=1}^{N}V_{int}(x^{(\nu)}-x^{(\nu')})]
+\end{equation}
+
+For free particles, $V, V_{int} = 0$. Thus,
+
+\begin{eqnarray}
+  (x_{b}^{(p(1))},\dots,x_{b}^{(p(N))};\hbar \beta \mid x_{a}^{(1)},\dots,x_{a}^{(N)};0) &=& \prod_{\nu=1}^{N} (x_{b}^{(p(\nu))};\hbar \beta \mid x_{a}^{(\nu)};0) \\
+                                                                                         &=& \prod_{\nu=1}^{N} [\int_{x^{(\nu)}(0)}^{x^{(p(\nu))}\hbar\beta} \mathcal{D}^{D}x^{\nu}\exp^{-\mathcal{A_{\nu}}^{(N)}/\hbar}] \\
+                                                                                         &=& \prod_{\nu=1}^{N} [\int_{x^{(\nu)}(0)}^{x^{(p(\nu))}\hbar\beta} \mathcal{D}^{D}x^{\nu}\exp{[-\frac{1}{\hbar} \int_{0}^{\hbar\beta}d\tau \frac{M^{(\nu)} (\dot{x}^{(\nu)})^{2}}{2}]} \\
+                                                                                         &=& \prod_{\nu=1}^{N} \frac{1}{\sqrt{2\pi\hbar^{2}\beta/M^{(\nu)}}^{D}} \exp{[-\frac{M^{(\nu)}}{2\hbar^{2}\beta} (x_{b}^{(p(\nu))} - x_{a}^{(\nu)})^{2}]}
+\end{eqnarray}
+
+Defining $\lambda \equiv \frac{\hbar^{2}}{2M^{(\nu)}}$,
+
+\begin{equation}
+  \mathcal{Z}^{(N)}_{0} = \frac{1}{\sqrt{4\pi\lambda\beta}^{ND}} \frac{1}{N!} \int d^{D}x^{(1)} \dots d^{D}x^{(N)} \sum_{p(\nu)} \epsilon_{p(\nu)} \prod_{\nu=1}^{N} \exp{[-\frac{(x^{(p(\nu))}-x^{(\nu)})^{2}}{4\lambda\beta}]}
+\end{equation}
+
+Now all paths decompose into mutually disconnected groups, each with a winding number $\omega$. In general,
+
+\begin{equation}
+  \mathcal{Z}^{(N)}_{0,\omega} = \mathcal{Z}_{0}(\omega\beta) = \frac{V_{D}}{\sqrt{4\pi\lambda\omega\beta}^{D}}
+\end{equation}
+
+The number of elements consisting of $C_{1} \dots C_{N}$ cycles of length $\omega_{1} \dots \omega_{N}$ is,
+
+\begin{equation}
+  M(C_{1} \dots C_{N}) = \frac{N!}{\prod_{\omega=1}^{N} C_{\omega}! \omega^{C_{\omega}}}
+\end{equation}
+
+Thus,
+
+\begin{equation}
+  \mathcal{Z}_{0}^{(N)}(\beta) = \frac{1}{N!} \sum_{p(\nu)} \epsilon_{p(\nu)} M(C_{1} \dots C_{N}) \prod_{\omega=1, N=\sum_{\omega}\omega C_{\omega}}^{N} \mathcal{Z}_{0}(\omega\beta)^{C_{\omega}}
+\end{equation}
+
+Using this and doing some reordering, we find
+
+\begin{eqnarray}
+  \mathcal{Z}_{0}^{(N)}(\beta) &=& \sum_{C_{1} \dots C_{N}, N=\sum_{\omega}\omega C_{\omega}} \frac{M(C_{1} \dots C_{N}) \prod_{\omega=1}^{N} (\pm 1)^{C_{\omega}(\omega-1)}}{N!} \prod_{\omega=1}^{N} \mathcal{Z}_{0}(\omega\beta)^{C_{\omega}} \\
+                               &=& \sum_{\mathcal{P}} \tilde{M}(C_{1} \dots C_{N}) \prod_{\omega=1}^{N} \mathcal{Z}_{0}(\omega\beta)^{C_{\omega}} \\
+                               &=& \sum_{\mathcal{P}} \prod_{\omega=1}^{N} \frac{1}{C_{\omega}!} [(\pm 1)^{\omega-1} \frac{\mathcal{Z}_{0}(\omega\beta)}{\omega}]^{C_{\omega}}
+\end{eqnarray}
+
+where we relabeled $C_{1} \dots C_{N}, N=\sum_{\omega}\omega C_{\omega}$ as $\mathcal{P}$.
+
+
+\section{Sector Probabilities}
+
+From the above decomposition of the partition function, we can define the probability of a given permutation section $\mathcal{P}$ as,
+
+\begin{eqnarray}
+  P_{\mathcal{P}}^{(N)}(\beta) &=& \frac{1}{\mathcal{Z}_{0}^{(N)}(\beta)} \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} \mathcal{Z}_{0}(\omega\beta)^{C_{\omega}} \\
+                               &=& \frac{1}{\sum_{\mathcal{P}} \tilde{M}(\mathcal{P}) \prod_{\gamma=1}^{N} \mathcal{Z}_{0}(\gamma\beta)^{C_{\gamma}}} \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} \mathcal{Z}_{0}(\omega\beta)^{C_{\omega}} \\
+                               &=& \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} [\frac{\mathcal{Z}_{0}(\omega\beta)}{(\sum_{\mathcal{P}} \tilde{M}(\mathcal{P}) \prod_{\gamma=1}^{N} \mathcal{Z}_{0}(\gamma\beta)^{C_{\gamma}})^{1/C_{\omega}}}]^{C_{\omega}} \\
+                               &=& \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} P_{\omega}(\beta)^{C_{\omega}}
+\end{eqnarray}
+
+where we have defined $P_{\omega}(\beta)$ as the probability of a cycle of length $\omega$. What's important is that this probability is indepedent of sector $\mathcal{P}$, implying that (at least for the free gas), the entire permutation space can reconstructed from $N$ parameters and known combinatorial factors.
+
+Going one step further, we want to show that each of these $N$ parameters can be reconstructed from a single value, e.g. $P_{\omega=2}(\beta)$. From the above equation, we can see it is equivalent to show that $\mathcal{Z}_{0}(\omega\beta)$ can be written as a function of $\mathcal{Z}_{0}(\gamma\beta)$ with $\omega \neq \gamma$:
+
+\begin{equation}
+  \mathcal{Z}_{0}(\omega\beta) = \frac{V_{D}}{\sqrt{4\pi\lambda\omega\beta}^{D}} = (\frac{\gamma}{\omega})^{D/2} \mathcal{Z}_{0}(\gamma\beta)
+\end{equation}
+
+Thus,
+
+\begin{equation}
+  P_{\omega}(\beta) = \frac{\mathcal{Z}_{0}(\omega\beta)}{\mathcal{Z}_{0}^{(N)}(\beta)} = \frac{(\frac{\gamma}{\omega})^{D/2} \mathcal{Z}_{0}(\gamma\beta)}{\mathcal{Z}_{0}^{(N)}(\beta)} = (\frac{\gamma}{\omega})^{D/2} P_{\gamma}(\beta).
+\end{equation}
+
+Finally then we see that
+
+\begin{equation}
+  P_{\mathcal{P}}^{(N)}(\beta) = \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} [(\frac{\gamma}{\omega})^{D/2} P_{\gamma}(\beta)]^{C_{\omega}}
+\end{equation}
+
+for any value of $\gamma = 1 \dots N$. Therefore we can now reconstruct the entire permutation space from a single parameter and known combinatorial factors.
+
+
+\section{Energy per Sector}
+
+Recall the energy is defined as,
+
+\begin{equation}
+  E^{(N)}(\beta) = \frac{\partial}{\partial\beta} \log{\mathcal{Z}^{(N)}(\beta)} = \frac{1}{\mathcal{Z}^{(N)}(\beta)} \frac{\partial}{\partial\beta} \mathcal{Z}^{(N)}(\beta).
+\end{equation}
+
+For the free gas then,
+
+\begin{eqnarray}
+  E_{0}^{(N)}(\beta) &=& \frac{1}{\mathcal{Z}_{0}^{(N)}(\beta)} \frac{\partial}{\partial\beta} \mathcal{Z}_{0}^{(N)}(\beta) \\
+                     &=& \frac{1}{\mathcal{Z}_{0}^{(N)}(\beta)} \frac{\partial}{\partial\beta} \sum_{\mathcal{P}} \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} \mathcal{Z}_{0}(\omega\beta)^{C_{\omega}} \\
+                     &=& \frac{1}{\mathcal{Z}_{0}^{(N)}(\beta)} \sum_{\mathcal{P}} \tilde{M}(\mathcal{P}) \frac{\partial}{\partial\beta} \prod_{\omega=1}^{N} \mathcal{Z}_{0}(\omega\beta)^{C_{\omega}} \\
+                     &=& \frac{1}{\mathcal{Z}_{0}^{(N)}(\beta)} \sum_{\mathcal{P}} \tilde{M}(\mathcal{P}) \sum_{\gamma=1}^{N} C_{\gamma} \frac{\frac{\partial}{\partial\beta}\mathcal{Z}_{0}(\gamma\beta)}{\mathcal{Z}_{0}(\gamma\beta)} \prod_{\omega=1}^{N} \mathcal{Z}_{0}(\omega\beta)^{C_{\omega}} \\
+                     &=& \frac{1}{\mathcal{Z}_{0}^{(N)}(\beta)} \sum_{\mathcal{P}} \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} \mathcal{Z}_{0}(\omega\beta)^{C_{\omega}} \sum_{\gamma=1}^{N} C_{\gamma} E_{0}(\gamma\beta) \\
+                     &=& \sum_{\mathcal{P}} P_{\mathcal{P}}^{(N)}(\beta) \sum_{\gamma=1}^{N} C_{\gamma} E_{0}(\gamma\beta)
+\end{eqnarray}
+
+\bibliography{FFGPermSectors}{}
+
+%\pagebreak
+%\input{supplementary.tex}
+
+\end{document}
