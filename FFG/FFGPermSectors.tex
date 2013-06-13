@@ -160,6 +160,27 @@ For the free gas then,
                      &=& \sum_{\mathcal{P}} P_{\mathcal{P}}^{(N)}(\beta) \sum_{\gamma=1}^{N} C_{\gamma} E_{0}(\gamma\beta)
 \end{eqnarray}
 
+\section{Pair Correlation Function}
+
+Recall the pair correlation function is defined as,
+
+\begin{equation}
+  g(x) = \frac{2 \Omega}{N^{2}} \langle \sum_{i<j} \delta(x^{(i)}-x^{(j)}-x) \rangle.
+\end{equation}
+
+The expectation value is given by,
+
+\begin{equation}
+  \frac{1}{\mathcal{Z}_{0}^{(N)}(\beta)} \sum_{\mathcal{P}} \tilde{M}(\mathcal{P}) \int d^{D}x^{(1)} \dots d^{D}x^{(N)} \sum_{i<j} \delta(x^{(i)}-x^{(j)}-x) \prod_{\nu=1}^{N} \exp{[-\frac{(x^{(p(\nu))}-x^{(\nu)})^{2}}{4\lambda\beta}]}.
+\end{equation}
+
+We note that we only get a contribution to this sum if $i$ and $j$ are part of the same cycle. For each cycle length $\omega$, there are $C_{\omega} \binom{\omega}{2}$ equal contributions. Finally we note that the integral over the $\delta$-function gives an extra factor of $\sqrt{\frac{\omega}{\omega-1}}\exp{[-\frac{\omega x^{2}}{4(\omega-1)\lambda\beta}]}$. Thus we are left with,
+
+\begin{eqnarray}
+  &=& \frac{1}{\mathcal{Z}_{0}^{(N)}(\beta)} \sum_{\mathcal{P}} \tilde{M}(\mathcal{P}) \sum_{\omega=2}^{N} C_{\omega} \binom{\omega}{2} \sqrt{\frac{\omega}{\omega-1}}\exp{[-\frac{\omega x^{2}}{4(\omega-1)\lambda\beta}]} \prod_{\omega=1}^{N} \mathcal{Z}_{0}(\omega\beta)^{C_{\omega}} \\ 
+  &=& \sum_{\mathcal{P}} P_{\mathcal{P}}^{(N)}(\beta) \sum_{\omega=2}^{N} C_{\omega} \binom{\omega}{2} \sqrt{\frac{\omega}{\omega-1}}\exp{[-\frac{\omega x^{2}}{4(\omega-1)\lambda\beta}]}
+\end{eqnarray}
+
 \bibliography{FFGPermSectors}{}
 
 %\pagebreak
