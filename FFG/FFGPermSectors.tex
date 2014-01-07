@@ -114,9 +114,7 @@ From the above decomposition of the partition function, we can define the probab
 
 \begin{eqnarray}
   P_{\mathcal{P}}^{(N)}(\beta) &=& \frac{1}{\mathcal{Z}_{0}^{(N)}(\beta)} \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} \mathcal{Z}_{0}(\omega\beta)^{C_{\omega}} \\
-                               &=& \frac{1}{\sum_{\mathcal{P}} \tilde{M}(\mathcal{P}) \prod_{\gamma=1}^{N} \mathcal{Z}_{0}(\gamma\beta)^{C_{\gamma}}} \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} \mathcal{Z}_{0}(\omega\beta)^{C_{\omega}} \\
-                               &=& \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} [\frac{\mathcal{Z}_{0}(\omega\beta)}{(\sum_{\mathcal{P}} \tilde{M}(\mathcal{P}) \prod_{\gamma=1}^{N} \mathcal{Z}_{0}(\gamma\beta)^{C_{\gamma}})^{1/C_{\omega}}}]^{C_{\omega}} \\
-                               &=& \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} P_{\omega}(\beta)^{C_{\omega}}
+                               &=& \frac{1}{\mathcal{Z}_{0}^{(N)}(\beta)} \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} P_{\omega}(\beta)^{C_{\omega}}
 \end{eqnarray}
 
 where we have defined $P_{\omega}(\beta)$ as the probability of a cycle of length $\omega$. What's important is that this probability is indepedent of sector $\mathcal{P}$, implying that (at least for the free gas), the entire permutation space can reconstructed from $N$ parameters and known combinatorial factors.
@@ -132,14 +130,20 @@ Going one step further, we want to show that each of these $N$ parameters can be
 Thus,
 
 \begin{equation}
-  P_{\omega}(\beta) = \frac{\mathcal{Z}_{0}(\omega\beta)}{\mathcal{Z}_{0}^{(N)}(\beta)} = \frac{(\frac{\gamma}{\omega})^{D/2} \mathcal{Z}_{0}(\gamma\beta)}{\mathcal{Z}_{0}^{(N)}(\beta)} = (\frac{\gamma}{\omega})^{D/2} P_{\gamma}(\beta).
+  \mathcal{Z}_{0}(\omega\beta) = (\frac{\gamma}{\omega})^{D/2} \mathcal{Z}_{0}(\gamma\beta).
 \end{equation}
 
 Finally then we see that
 
 \begin{equation}
-  P_{\mathcal{P}}^{(N)}(\beta) = \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} [(\frac{\gamma}{\omega})^{D/2} P_{\gamma}(\beta)]^{C_{\omega}}
+  P_{\mathcal{P}}^{(N)}(\beta) = \frac{1}{\mathcal{Z}_{0}^{(N)}(\beta)} \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} [(\frac{\gamma}{\omega})^{D/2} P_{\gamma}(\beta)]^{C_{\omega}}
 \end{equation}
+
+or rather that
+
+\begin{eqnarray}
+  \frac{P_{\mathcal{P}}^{(N)}(\beta)}{P_{\mathcal{P}'}^{(N)}(\beta)} &=& \frac{\tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} [(\frac{\gamma}{\omega})^{D/2} P_{\gamma}(\beta)]^{C_{\omega}}}{\tilde{M}(\mathcal{P}') \prod_{\omega'=1}^{N} [(\frac{\gamma}{\omega'})^{D/2} P_{\gamma}(\beta)]^{C_{\omega'}}} \\
+\end{eqnarray}
 
 for any value of $\gamma = 1 \dots N$. Therefore we can now reconstruct the entire permutation space from a single parameter and known combinatorial factors.
 
