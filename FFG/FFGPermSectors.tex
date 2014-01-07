@@ -80,9 +80,10 @@ Defining $\lambda \equiv \frac{\hbar^{2}}{2M^{(\nu)}}$,
 
 Now all paths decompose into mutually disconnected groups, each with a winding number $\omega$. In general,
 
-\begin{equation}
-  \mathcal{Z}^{(N)}_{0,\omega} = \mathcal{Z}_{0}(\omega\beta) = \frac{V_{D}}{\sqrt{4\pi\lambda\omega\beta}^{D}}
-\end{equation}
+\begin{eqnarray}
+  \mathcal{Z}^{(N)}_{0,\omega} &=& \mathcal{Z}_{0}(\omega\beta) \\
+                               &\overset{\lim_{L \gg \lambda}}{\sim}& \frac{V_{D}}{\sqrt{4\pi\lambda\omega\beta}^{D}}
+\end{eqnarray}
 
 The number of elements consisting of $C_{1} \dots C_{N}$ cycles of length $\omega_{1} \dots \omega_{N}$ is,
 
@@ -120,7 +121,9 @@ From the above decomposition of the partition function, we can define the probab
 
 where we have defined $P_{\omega}(\beta)$ as the probability of a cycle of length $\omega$. What's important is that this probability is indepedent of sector $\mathcal{P}$, implying that (at least for the free gas), the entire permutation space can reconstructed from $N$ parameters and known combinatorial factors.
 
-Going one step further, we want to show that each of these $N$ parameters can be reconstructed from a single value, e.g. $P_{\omega=2}(\beta)$. From the above equation, we can see it is equivalent to show that $\mathcal{Z}_{0}(\omega\beta)$ can be written as a function of $\mathcal{Z}_{0}(\gamma\beta)$ with $\omega \neq \gamma$:
+\subsection{$L \gg \lambda$}
+
+Going one step further, we want to show that each of these $N$ parameters can be reconstructed from a single value, e.g. $P_{\omega=2}(\beta)$. From the above equation, we can see it is equivalent to show that $\mathcal{Z}_{0}(\omega\beta)$ can be written as a function of $\mathcal{Z}_{0}(\gamma\beta)$ with $\omega \neq \gamma$. This is apparently true when the sum over states can be written as an integral or when $L \gg \lambda$:
 
 \begin{equation}
   \mathcal{Z}_{0}(\omega\beta) = \frac{V_{D}}{\sqrt{4\pi\lambda\omega\beta}^{D}} = (\frac{\gamma}{\omega})^{D/2} \mathcal{Z}_{0}(\gamma\beta)
@@ -140,6 +143,26 @@ Finally then we see that
 
 for any value of $\gamma = 1 \dots N$. Therefore we can now reconstruct the entire permutation space from a single parameter and known combinatorial factors.
 
+\subsection{$\beta \gg 1$}
+
+At all temperatures, we know
+
+\begin{equation}
+  \mathcal{Z}_{0}(\omega\beta) = \sum_{k} \exp^{-\beta \lambda k^2}
+\end{equation}
+
+where $k_{i} \equiv 2\pi n_{i}/L$ with $n_{i} = -\infty \dots \infty$. Near the ground state, only a single value will dominate, suggesting the form:
+
+\begin{eqnarray}
+  P_{\mathcal{P}}^{(N)}(\beta) &=& \frac{1}{\mathcal{Z}_{0}^{(N)}(\beta)} \tilde{M}(\mathcal{P}) \prod_{\omega=1}^{N} (1+P_{\omega})^{C_{\omega}} \\
+\end{eqnarray}
+
+with
+
+\begin{eqnarray}
+  P_{\omega} &\equiv& P_{0}\exp^{-\alpha \omega} \\
+             &\equiv& P_{0}p_{2}^{\omega}
+\end{eqnarray}
 
 \section{Energy per Sector}
 
